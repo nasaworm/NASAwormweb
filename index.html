@@ -3,30 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meine einfache Website</title>
+    <title>Meine Website mit Menü</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
             color: #333;
-            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
             padding: 20px;
+            text-align: center;
         }
-        h1 {
-            color: #007BFF;
+        nav {
+            background-color: #333;
+            overflow: hidden;
         }
-        a {
-            color: #007BFF;
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
             text-decoration: none;
         }
-        a:hover {
-            text-decoration: underline;
+        nav a:hover {
+            background-color: #575757;
+        }
+        #content {
+            padding: 20px;
+            text-align: center;
+        }
+        #home, #info {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
         }
     </style>
 </head>
 <body>
+
+<header>
     <h1>Willkommen auf meiner Website!</h1>
-    <p>Dies ist ein einfacher HTML-Code für eine Website. Hier kannst du Texte, Bilder und Links hinzufügen.</p>
-    <a href="https://www.google.com" target="_blank">Klicke hier, um zu Google zu gelangen</a>
+</header>
+
+<nav>
+    <a href="#" onclick="showPage('home')">Hauptseite</a>
+    <a href="#" onclick="showPage('info')">Nebenseite</a>
+</nav>
+
+<div id="content">
+    <div id="home" class="active">
+        <h2>Hauptseite</h2>
+        <img src="logo.png" alt="Logo" style="max-width: 200px;">
+        <p>Hier ist Platz für deinen Text.</p>
+        <img src="bild.jpg" alt="Beispielbild">
+        <p>Du kannst hier weitere Bilder und Texte hinzufügen.</p>
+    </div>
+    <div id="info">
+        <h2>Nebenseite</h2>
+        <p>Das ist die Nebenseite mit einem Informationstext.</p>
+    </div>
+</div>
+
+<script>
+    function showPage(page) {
+        document.getElementById('home').classList.remove('active');
+        document.getElementById('info').classList.remove('active');
+        document.getElementById(page).classList.add('active');
+    }
+</script>
+
 </body>
 </html>
